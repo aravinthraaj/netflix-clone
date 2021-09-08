@@ -46,12 +46,6 @@ function App() {
           </Switch> )
         }
       </Router>
-      {/* <Switch>
-          <Route exact path="/">
-            <HomeScreen />
-          </Route>
-        </Switch> 
-      </Router> */}
     </div>
   );
 }

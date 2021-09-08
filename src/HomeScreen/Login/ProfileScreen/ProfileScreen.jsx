@@ -3,7 +3,7 @@ import Nav from '../../Nav';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../../features/user/userSlice';
 import {auth} from '../../../firebaseControl'
-// import { auth } from '../../firebaseControl';
+
 
 import './styles.css';
 
