@@ -3,6 +3,7 @@ import axios from '../../axios';
 import requests from '../../Requests';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import './Banner.scss'
 
 function Banner({category}) {
@@ -54,7 +55,7 @@ function Banner({category}) {
           </select>
         </div>
       )}
-            <div className="container">
+            <div className="detailsContainer">
                 <h1 className="title">
                     {movie?.name || movie?.title || movie?.original_name}
                 </h1>
@@ -70,10 +71,15 @@ function Banner({category}) {
                     <button className="button more">
                         <div className="btnAlign">
                             <InfoOutlinedIcon/>
-                            <span>More Info</span>
-                            
+                            <span>More Info</span>      
                         </div>
                     </button>
+                </div>
+            </div>
+            <div className="ratingContainer">
+                <VolumeUpOutlinedIcon className="icon"/>
+                <div className="ageRating">
+                    <span>13+</span>
                 </div>
             </div>
             <div className="fadeBottom"></div>
