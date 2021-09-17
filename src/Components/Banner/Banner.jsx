@@ -58,7 +58,7 @@ function Banner({category}) {
                 <h1 className="title">
                     {movie?.name || movie?.title || movie?.original_name}
                 </h1>
-                <h1 className="description">{truncate(movie?.overview, 350)}</h1>
+                <h1 className="description">{truncate(movie?.overview, 150)}</h1>
                 <div className="buttons">
                     <button className="button play">
                         <div className="btnAlign">
