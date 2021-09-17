@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../../axios";
-import './styles.css'
+import Slide from '../Slide';
+import "./Row.scss"
+
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
     const [movies, setMovies] = useState([]);
@@ -16,20 +18,20 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         fetchData();
     }, [fetchUrl])
 
-    console.log(movies);
+
     return (
         <div className="row">
             <h1>{title}</h1>
-            <div className="row__posters">
+            <div className="posters">
                 {movies.map((movie) => 
                 ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) && (
-                    <img className={`row__poster ${isLargeRow && "row__posterLarge"}`} 
-                        src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path
-                            }`}
-                        alt={movie.name} />
+                    <Slide poster={`${base_url}${movie.backdrop_path}`}/>
+                    // <img className={`poster ${isLargeRow && "posterLarge"}`} 
+                    //     src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path
+                    //         }`}
+                    //     alt={movie.name} />
                 ))}
             </div>
-
         </div>
     )
 }

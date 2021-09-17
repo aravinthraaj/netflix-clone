@@ -1,15 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const initialState = {
-//   value: 0,
-//   status: 'idle',
-// };
-
 
 export const userSlice = createSlice({
   name: 'user',
   initialState:{
-    user:null
+    user:null,
+    category:null
   },
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -19,15 +15,20 @@ export const userSlice = createSlice({
     },
     logout: (state) => {
       state.user = null;
+    },
+    setCategory: (state,action) => {
+      state.category = action.payload;
     }
   },
 
+
 });
 
-export const { login,logout} = userSlice.actions;
+
+export const { login,logout,setCategory } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
 
-
+export const selectCategory = (state) => state.user.category;
 
 export default userSlice.reducer;

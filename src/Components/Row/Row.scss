@@ -1,0 +1,44 @@
+.row{
+  color: white;
+  margin-left: 60px;
+  margin-bottom: 30px;
+  position: relative;
+  // overflow: hidden;
+
+  .posters{
+    display: flex;
+    // overflow-y: visible;
+    // overflow-x: scroll;
+    padding: 20px 0px;
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    .poster{
+      height: 150px;
+      object-fit: contain;
+      margin-right: 10px;
+      width: 400px;
+      border-radius: 3px;
+      transition: width 1s, height 1s;
+      transform-origin: center;
+
+
+      &:hover{
+        
+      transition-delay: .5s;
+			width: 600px;
+			height: 250px;
+      // z-index: 999;
+        // transform: scale(1.3);
+        // opacity: 1;
+      }
+
+    }
+
+    .posterLarge{
+      min-height: 350px;
+    }
+  }
+}

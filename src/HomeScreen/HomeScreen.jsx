@@ -1,18 +1,23 @@
 import React from 'react';
-import Nav from './Nav';
-import Banner from './Banner';
-import Row from './Row';
-import './styles.css'
+import Nav from '../Components/Nav';
+import Banner from '../Components/Banner'
+import Row from '../Components/Row';
+import { useSelector } from "react-redux";
+import { selectCategory } from '../features/user/userSlice';
+import './HomeScreen.scss'
 import requests from '../Requests';
 
 function HomeScreen() {
+    const category = useSelector(selectCategory);
+    
+
     return (
         <div className="homeScreen">
             {/* Nav */}
             <Nav/>
-
+            {/* <Featured/> */}
             {/* Banner */}
-            <Banner/>
+            <Banner category={category}/>
 
             {/* Row */}
             
