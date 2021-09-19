@@ -1,0 +1,43 @@
+.footer{
+  margin: 100px 400px 0px;
+  color: grey;
+
+  .socialmedias{
+    *{
+      margin-top: 20px;
+      margin-right: 10px;
+    }
+    .icon{
+      cursor: pointer;
+    }
+  }
+
+  .links{
+    display: grid;
+    font-weight: 100;
+    font-size: 14px;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    padding: 10px 0px;
+    row-gap: 20px;
+    h5{
+      cursor: pointer;
+      &:hover{
+
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .serviceCode{
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 20px;
+    display: inline-block;
+    border: 1px solid grey;
+  }
+
+  .copyrights{
+    font-size: 11px;
+    margin: 10px 0px;
+  }
+}

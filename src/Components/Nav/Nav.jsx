@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useRef} from 'react'
 import { useHistory } from 'react-router';
 import './Nav.scss'
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,8 +7,12 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 function Nav() {
     const [show,hanldeShow] = useState(false);
+    const [isActive, setisActive] = useState(false)
     const history = useHistory();
 
+    const ToggleActive = () => {
+      setisActive(!isActive);       
+    };
 
     const transitionNavbar = () => {
         if(window.scrollY > 100){
@@ -38,8 +42,17 @@ function Nav() {
                     <span>My List</span>
                 </div>
                 <div className="right">
-                    <SearchIcon className="icon"/>
-                    <span>KID</span>
+                     <div className="search">
+                        <input 
+                            className={`input ${isActive ? "toggle" : null}` } 
+                            type="text" 
+                            placeholder="Titles, people, genres"
+                            onBlur = {ToggleActive}
+                        />
+                        <SearchIcon className="img" onClick={ToggleActive}/>
+                    </div>
+                    {/* <SearchIcon className="icon"/> */}
+                    {/* <span>KID</span> */}
                     <Notifications className="icon"/>
                     <img
                         onClick={()=>{history.push("/profile")}}

@@ -3,6 +3,7 @@ import Nav from '../../Components/Nav'
 import Banner from '../../Components/Banner'
 import Row from '../../Components/Row'
 import requests from '../../Requests'
+import Footer from '../../Components/Footer/Footer'
 
 
 function TvShows() {
@@ -28,7 +29,7 @@ function TvShows() {
       <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies}/>
       <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies}/>
       <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries}/>
-
+      <Footer/>
     </div>
   )
 }

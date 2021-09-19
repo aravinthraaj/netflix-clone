@@ -13,7 +13,7 @@ import './Slide.scss'
 function Slide({poster}) {
   const [isHovered, setIsHovered] = useState(false);
   const trailer =
-    "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
+  "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
 
   const LightTooltip = withStyles((theme) => ({
     tooltip: {
@@ -34,10 +34,10 @@ function Slide({poster}) {
     >
 
       <div className="box">
-        <img src={poster} alt="" />
-        {isHovered && (
+        
+        {isHovered ? (
           <>
-            <video src={trailer} autoPlay={true} loop />
+            <video poster={poster} src={trailer} autoPlay={true} loop />
             <div className="buttons">
               <div className="left">
                 <PlayArrowIcon className="icon play"/>
@@ -73,7 +73,8 @@ function Slide({poster}) {
             </div>
           
           </>
-        )}
+        ) :
+        <img src={poster} alt="" /> }
         
       </div>
     </div>

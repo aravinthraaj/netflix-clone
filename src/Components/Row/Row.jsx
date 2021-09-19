@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../../axios";
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import Slide from '../Slide';
 import "./Row.scss"
 
@@ -21,7 +22,14 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
 
     return (
         <div className="row">
-            <h1>{title}</h1>
+            <div className="title">
+                <h1>{title}</h1>
+                <span>
+                    Explore All
+                </span>
+                    <KeyboardArrowRightIcon/>
+                
+            </div>
             <div className="posters">
                 {movies.map((movie) => 
                 ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) && (

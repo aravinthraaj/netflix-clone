@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { selectCategory } from '../features/user/userSlice';
 import './HomeScreen.scss'
 import requests from '../Requests';
+import Footer from '../Components/Footer/Footer';
 
 function HomeScreen() {
     const category = useSelector(selectCategory);
@@ -34,7 +35,7 @@ function HomeScreen() {
             <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies}/>
             <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries}/>
 
-
+            <Footer/>
         </div>
     )
 }
