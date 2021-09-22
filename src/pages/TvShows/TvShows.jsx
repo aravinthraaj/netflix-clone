@@ -10,7 +10,7 @@ function TvShows() {
   return (
     <div className="tvshows">
       {/* Nav */}
-      <Nav/>
+      {/* <Nav/> */}
       {/* <Featured/> */}
       {/* Banner */}
       <Banner category="Series"/>

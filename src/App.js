@@ -3,6 +3,7 @@ import "./App.scss";
 import HomeScreen from "./HomeScreen";
 import Login from "./HomeScreen/Login";
 import ProfileScreen from "./HomeScreen/Login/ProfileScreen";
+import Nav from "./Components/Nav";
 import { auth } from "./firebaseControl";
 import { useDispatch,useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/user/userSlice"
@@ -13,6 +14,7 @@ import {
 } from "react-router-dom";
 import TvShows from "./pages/TvShows/TvShows";
 import Movies from "./pages/Movies/Movies";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
   const user = useSelector(selectUser);
@@ -41,20 +43,26 @@ function App() {
       {/* <HomeScreen /> */}
       <Router>
         {!user ? (<Login/>)
-          :(<Switch>
-            <Route path="/profile">
-              <ProfileScreen/>
-            </Route>
-            <Route exact path="/">
-              <HomeScreen />
-            </Route>
-            <Route path="/tvshows">
-              <TvShows />
-            </Route>
-            <Route path="/movies">
-              <Movies />
-            </Route>
-          </Switch> )
+          :(<>
+            <Nav/>
+            <Switch>
+              <Route path="/profile">
+                <ProfileScreen/>
+              </Route>
+              <Route exact path="/">
+                <HomeScreen />
+              </Route>
+              <Route path="/tvshows">
+                <TvShows />
+              </Route>
+              <Route path="/movies">
+                <Movies />
+              </Route>
+              <Route path="/search">
+                <SearchPage/>
+              </Route>
+            </Switch> 
+          </>)
         }
       </Router>
     </div>

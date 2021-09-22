@@ -4,11 +4,22 @@ import './Nav.scss'
 import SearchIcon from '@material-ui/icons/Search';
 import Notifications from '@material-ui/icons/Notifications';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import CloseIcon from '@material-ui/icons/Close';
+import SearchPage from '../../pages/SearchPage/SearchPage';
 
 function Nav() {
     const [show,hanldeShow] = useState(false);
     const [isActive, setisActive] = useState(false)
     const history = useHistory();
+
+    const handleSearch = (e) =>{
+        if(e.target.value === ''){
+            history.goBack()
+        }else{
+            <SearchPage/>
+            history.push("/search")
+        }
+    }
 
     const ToggleActive = () => {
       setisActive(!isActive);       
@@ -47,9 +58,11 @@ function Nav() {
                             className={`input ${isActive ? "toggle" : null}` } 
                             type="text" 
                             placeholder="Titles, people, genres"
+                            onChange={handleSearch}
                             onBlur = {ToggleActive}
                         />
-                        <SearchIcon className="img" onClick={ToggleActive}/>
+                        <SearchIcon className="search-icon" onClick={ToggleActive}/>
+                        <CloseIcon className="close-icon" style={isActive ? {visibility:"visible"} : {visibility:"hidden"}} onClick={ToggleActive}/>
                     </div>
                     {/* <SearchIcon className="icon"/> */}
                     {/* <span>KID</span> */}
@@ -72,4 +85,4 @@ function Nav() {
     )
 }
 
-export default Nav
+export default React.memo(Nav)

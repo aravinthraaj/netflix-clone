@@ -10,7 +10,7 @@ function Movies() {
   return (
     <div className="movies">
       {/* Nav */}
-      <Nav/>
+      {/* <Nav/> */}
       {/* <Featured/> */}
       {/* Banner */}
       <Banner category="movies"/>
