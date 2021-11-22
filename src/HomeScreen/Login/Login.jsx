@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import './Login.scss'
+import logo from '../../Mockflix.png'
+
 import SignInScreen from './SignInScreen'
 
 function Login() {
@@ -7,13 +9,16 @@ function Login() {
   return (
     <div className="login">
       
-      <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="" className="logo" />
+      
+      <img src={logo} alt="" className="logo" />
       <button onClick={() => setSignIn(true)} className="button">
         Sign In
       </button>
+
       <div className="gradient"/>
       
       <div className="body">
+
         {signIn ? (<SignInScreen/>) : (
           <>
           <h1>
@@ -29,6 +34,9 @@ function Login() {
               </button>
             </form>
           </div>
+          <button onClick={() => setSignIn(true)} className="getstarted anonymosly">
+              To check the website Anonymosly
+          </button>
         </>
         )}
         

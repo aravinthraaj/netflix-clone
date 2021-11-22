@@ -1,4 +1,5 @@
 import React,{useEffect,useState,useRef} from 'react'
+import logo from '../../Mockflix.png'
 import { useHistory } from 'react-router';
 import './Nav.scss'
 import SearchIcon from '@material-ui/icons/Search';
@@ -10,20 +11,26 @@ import SearchPage from '../../pages/SearchPage/SearchPage';
 function Nav() {
     const [show,hanldeShow] = useState(false);
     const [isActive, setisActive] = useState(false)
+    const searchRef = useRef(null)
     const history = useHistory();
 
     const handleSearch = (e) =>{
-        if(e.target.value === ''){
-            history.goBack()
-        }else{
-            <SearchPage/>
-            history.push("/search")
+        if(e.target.value){
+            if(e.target.value.length <= 1){
+                history.push(`/`)
+            }else{
+                history.push(`/search?q=${e.target.value}`)
+            }
         }
     }
 
     const ToggleActive = () => {
-      setisActive(!isActive);       
+      setisActive(!isActive);  
+      document.getElementById("search").focus();
+
     };
+
+
 
     const transitionNavbar = () => {
         if(window.scrollY > 100){
@@ -43,7 +50,9 @@ function Nav() {
                 <div className="left">
                     <img
                         onClick={()=>{history.push("/")}} 
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" 
+                        // src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" 
+                        src={logo} 
+
                         alt=""
                     /> 
                     <span id="home" onClick={()=>{history.push("/")}} >Homepage</span>
@@ -59,9 +68,11 @@ function Nav() {
                             type="text" 
                             placeholder="Titles, people, genres"
                             onChange={handleSearch}
-                            onBlur = {ToggleActive}
+                            // onBlur = {ToggleActive}
+                            id="search"
+                            ref={searchRef}
                         />
-                        <SearchIcon className="search-icon" onClick={ToggleActive}/>
+                        <SearchIcon className="search-icon" onClick={ToggleActive} />
                         <CloseIcon className="close-icon" style={isActive ? {visibility:"visible"} : {visibility:"hidden"}} onClick={ToggleActive}/>
                     </div>
                     {/* <SearchIcon className="icon"/> */}

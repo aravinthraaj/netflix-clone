@@ -1,7 +1,9 @@
 import React,{useRef} from 'react'
 import { auth } from '../../../firebaseControl';
+// import { getAuth, signInAnonymously } from "firebase/auth";
 import './SignInScreen.scss'
 // import './styles.css'
+
 
 function SignInScreen() {
   const emailRef = useRef(null);
@@ -37,6 +39,25 @@ function SignInScreen() {
   }
 
 
+
+
+  const anonymousLogin = (e) =>{
+
+    e.preventDefault();
+    auth.signInWithEmailAndPassword(
+      "test@gmail.com","123456"
+      )
+      .then((authUser) => {
+        console.log(authUser);
+      })
+      .catch((error) => {
+        alert(error.message);
+      })
+  }
+
+ 
+
+
   return (
     <div className="signInScreen">
       <form>
@@ -44,6 +65,8 @@ function SignInScreen() {
         <input ref={emailRef} type="email" placeholder="Email" />
         <input ref={passwordRef} type="password" placeholder="Password" />
         <button onClick={signIn} type="submit">Sign In</button>
+        <button onClick={anonymousLogin} type="submit">Guest Login</button>
+
         <h4>
           <span className="gray">New to Netflix? </span>
           <span className="link" onClick={register}>Sign Up now.</span>

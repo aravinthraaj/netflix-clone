@@ -16,9 +16,13 @@ import TvShows from "./pages/TvShows/TvShows";
 import Movies from "./pages/Movies/Movies";
 import SearchPage from "./pages/SearchPage/SearchPage";
 
+
+
+
 function App() {
   const user = useSelector(selectUser);
- 
+  
+
   // const user = null;
 
   const dispatch = useDispatch();
@@ -46,19 +50,19 @@ function App() {
           :(<>
             <Nav/>
             <Switch>
-              <Route path="/profile">
+              <Route exact path="/profile">
                 <ProfileScreen/>
               </Route>
               <Route exact path="/">
                 <HomeScreen />
               </Route>
-              <Route path="/tvshows">
+              <Route exact path="/tvshows">
                 <TvShows />
               </Route>
-              <Route path="/movies">
+              <Route exact path="/movies">
                 <Movies />
               </Route>
-              <Route path="/search">
+              <Route exact path="/search">
                 <SearchPage/>
               </Route>
             </Switch> 
